@@ -1,0 +1,31 @@
+.App {
+  font-family: sans-serif;
+  display: flex;
+  height: 100%;
+}
+
+.pageMenu {
+  border-right: 1px solid #e3e3e3;
+  display: block;
+  flex: 1;
+  margin-right: 16px;
+  padding-right: 3px;
+}
+.pageMenu span {
+  background: #e9e9e9;
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 3px 0;
+}
+
+.pageMenu .spanActive {
+  background-color: rgba(255, 136, 51, 0.1);
+  color: #ff6800;
+}
+
+.pageDemo {
+  flex: 4;
+}
