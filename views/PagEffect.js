@@ -6,10 +6,14 @@ import React, {
   // useRef
 } from "react";
 
-export default function PageTwo() {
+export default function PageTwo(props) {
+  const { initCount } = props;
+
   const [count, setCount] = useState(0);
   const [countChangeHtml, setCountChangeHtml] = useState("");
+
   useEffect(() => {
+    console.log(initCount);
     setCountChangeHtml("effect with deps" + count);
   }, [count]);
 

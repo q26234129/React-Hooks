@@ -1,6 +1,6 @@
 import React from "react";
-import { themes, ThemeContext } from "./themes.js";
-import Toolbar from "./toolbar";
+import { themes, ThemeContext } from "./child/themes.js";
+import Toolbar from "./child/toolbar.js";
 
 function Parents() {
   return (
@@ -9,3 +9,5 @@ function Parents() {
     </ThemeContext.Provider>
   );
 }
+
+export default Parents;

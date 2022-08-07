@@ -2,9 +2,10 @@ import "./styles.css";
 import React, { useState } from "react";
 import Count from "../views/Count.js";
 import CountClass from "../views/CountClass.js";
-import PageTwo from "../views/PageTwo.js";
-import ThemeButton from "../views/context/ThemeButton.js";
-import PageThr from "../views/PageThr.js";
+import PagEffect from "../views/PagEffect.js";
+import UseContext from "../views/context/useContext";
+import PageCallBack from "../views/PageCallBack";
+import PageMemo from "../views/PageMemo";
 
 // react中组件名称的首字母必须要用大写。
 // 原因：React中使用JSX语法，但浏览器无法识别JSX语法，需通过babel对JSX语法进行转义；
@@ -30,24 +31,24 @@ export default function App() {
       key: "CountClass"
     },
     {
-      name: "page2",
+      name: "useEffect",
       title: "·",
-      key: "PageTwo"
+      key: "PagEffect"
     },
     {
       name: "context",
       title: "·",
-      key: "ThemeButton"
+      key: "UseContext"
     },
     {
-      name: "page3",
+      name: "callBack",
       title: "·",
-      key: "PageThr"
+      key: "PageCallBack"
     },
     {
-      name: "page4",
+      name: "useMemo",
       title: "·",
-      key: "a"
+      key: "PageMemo"
     }
   ];
   return (
@@ -71,9 +72,10 @@ export default function App() {
         {/* 页面 */}
         {isShowPage === "Count" ? <Count initCount={0} /> : ""}
         {isShowPage === "CountClass" ? <CountClass /> : ""}
-        {isShowPage === "PageTwo" ? <PageTwo /> : ""}
-        {isShowPage === "PageThr" ? <PageThr /> : ""}
-        {isShowPage === "ThemeButton" ? <ThemeButton /> : ""}
+        {isShowPage === "PagEffect" ? <PagEffect initCount={20} /> : ""}
+        {isShowPage === "PageCallBack" ? <PageCallBack /> : ""}
+        {isShowPage === "UseContext" ? <UseContext /> : ""}
+        {isShowPage === "PageMemo" ? <PageMemo /> : ""}
       </div>
     </div>
   );
