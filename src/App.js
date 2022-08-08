@@ -2,7 +2,7 @@ import "./styles.css";
 import React, { useState } from "react";
 import Count from "../views/Count.js";
 import CountClass from "../views/CountClass.js";
-import PagEffect from "../views/PagEffect.js";
+import PageEffect from "../views/PageEffect.js";
 import UseContext from "../views/context/useContext";
 import PageCallBack from "../views/PageCallBack";
 import PageMemo from "../views/PageMemo";
@@ -21,19 +21,19 @@ export default function App() {
 
   const menuList = [
     {
-      name: "page1",
+      name: "count",
       title: "·useState· 应用",
       key: "Count"
     },
     {
-      name: "page1-class",
+      name: "count-class",
       title: "class 应用",
       key: "CountClass"
     },
     {
       name: "useEffect",
       title: "·",
-      key: "PagEffect"
+      key: "PageEffect"
     },
     {
       name: "context",
@@ -72,7 +72,7 @@ export default function App() {
         {/* 页面 */}
         {isShowPage === "Count" ? <Count initCount={0} /> : ""}
         {isShowPage === "CountClass" ? <CountClass /> : ""}
-        {isShowPage === "PagEffect" ? <PagEffect initCount={20} /> : ""}
+        {isShowPage === "PageEffect" ? <PageEffect initCount={20} /> : ""}
         {isShowPage === "PageCallBack" ? <PageCallBack /> : ""}
         {isShowPage === "UseContext" ? <UseContext /> : ""}
         {isShowPage === "PageMemo" ? <PageMemo /> : ""}

@@ -62,33 +62,37 @@ https://react.docschina.org/docs/hooks-reference.html
 第一个参数是副作用的处理函数；
 第二个参数是与该副作用关联的状态或属性依赖数组。第二个参数为空数组时，表示该副作用不依赖任何值变化，只会在组件完成初次渲染后执行一次。
 
-```
-useEffect(() => {
-  setCount(1)
-  console.log('更新了..', count)
-}, [])
-```
+    **
+    ```
+    useEffect(() => {
+      setCount(1)
+      console.log('更新了..', count)
+    }, [])
+    ```
+    **
 
 . useEffect 中的 return
 
-```
-useEffect(() => {
-  // 注册监听逻辑
-  console.log('开始监听')
-  return () => {
-    // 清除监听逻辑
-    console.log('结束监听')
-  }
-})
-```
+    **
+    ```
+    useEffect(() => {
+      // 注册监听逻辑
+      console.log('开始监听')
+      return () => {
+        // 清除监听逻辑
+        console.log('结束监听')
+      }
+    })
+    ```
+    **
 
-- class 组件中 实现首次加载和卸载的方法 \*
+- class 组件中 实现首次加载和卸载的方法
 
-```
-componentDidMount()
-componentWillUnmout()
-componentDidUpdate()
-```
+  ```
+  componentDidMount()
+  componentWillUnmout()
+  componentDidUpdate()
+  ```
 
 # useContext 的使用
 
@@ -96,104 +100,112 @@ _接收一个 context 对象并返回该 context 的当前值，使用 useContex
 
 基本使用(官方案例)
 
-```
-// js
-const themes = {
-  light: {
-    foreground: "#000000",
-    background: "#eeeeee"
-  },
-  dark: {
-    foreground: "#ffffff",
-    background: "#222222"
-  }
-};
-// 创建上下文
-const ThemeContext = React.createContext(themes.light);
-// 父组件
-function App() {
-  return (
-    <ThemeContext.Provider value={themes.dark}>
-      <Toolbar />
-    </ThemeContext.Provider>
-  );
-}
-// 中间组件
-function Toolbar(props) {
-  return (
-    <div>
-      <ThemedButton />
-    </div>
-  );
-}
-// ThemeButton
-function ThemedButton() {
-  const theme = useContext(ThemeContext);
-  return (
-    <button style={{ background: theme.background, color: theme.foreground }}>
-      I am styled by theme context!
-    </button>
-  );
-}
-```
+    **
+    ```
+    // js
+    const themes = {
+      light: {
+        foreground: "#000000",
+        background: "#eeeeee"
+      },
+      dark: {
+        foreground: "#ffffff",
+        background: "#222222"
+      }
+    };
+    // 创建上下文
+    const ThemeContext = React.createContext(themes.light);
+    // 父组件
+    function App() {
+      return (
+        <ThemeContext.Provider value={themes.dark}>
+          <Toolbar />
+        </ThemeContext.Provider>
+      );
+    }
+    // 中间组件
+    function Toolbar(props) {
+      return (
+        <div>
+          <ThemedButton />
+        </div>
+      );
+    }
+    // ThemeButton
+    function ThemedButton() {
+      const theme = useContext(ThemeContext);
+      return (
+        <button style={{ background: theme.background, color: theme.foreground }}>
+          I am styled by theme context!
+        </button>
+      );
+    }
+    ```
+    **
 
 # useCallback 的使用
 
 ## 基本写法
 
-```
-// 第一个参数是处理函数；第二个参数是一个数组，用于制定被记忆函数更新所依赖的值
-const memoizedCallback = useCallback(
-  () => {
-    doSomething(a, b);
-  },
-  [a, b],
-);
-```
+    **
+    ```
+    // 第一个参数是处理函数；第二个参数是一个数组，用于制定被记忆函数更新所依赖的值
+    const memoizedCallback = useCallback(
+      () => {
+        doSomething(a, b);
+      },
+      [a, b],
+    );
+    ```
+    **
 
 ## 为什么需要使用 useCallback
 
 在函数式组件中，定义在组件内的函数会随着状态值的更新而重新渲染，函数中定义的函数会被频繁定义，在父子组件的通信中会非常消耗性能。使用 useCallback 结合 memo 可以有效的减少子组件的更新频率，提高效率。
 
-```
-// 父组件
-import React, { useState, useCallback } from "react";
+    **
+    ```
+    // 父组件
+    import React, { useState, useCallback } from "react";
 
-function Memoized() {
-  const [count, setCount] = useState(0);
+    function Memoized() {
+      const [count, setCount] = useState(0);
 
-  const handleClick = () => {
-    setCount(count + 1);
-  };
+      const handleClick = () => {
+        setCount(count + 1);
+      };
 
-  return (
-    <div>
-      <p>{count}</p>
-      <button onClick={handleClick}>Add</button>
-      <Child />
-    </div>
-  );
-}
+      return (
+        <div>
+          <p>{count}</p>
+          <button onClick={handleClick}>Add</button>
+          <Child />
+        </div>
+      );
+    }
 
-function Child(){
-  console.log('我是子组件')
-  return (
-    <p>我是子组件</p>
-  )
-}
-export default Memoized;
+    function Child(){
+      console.log('我是子组件')
+      return (
+        <p>我是子组件</p>
+      )
+    }
+    export default Memoized;
 
-// 子组件
-```
+    // 子组件
+    ```
+    **
 
 # useMemo 的使用
 
 ## 基本用法
 
-```
-// 第一个参数用于处理耗时计算并返回需要记录的值；第二个参数为数组，用于指定被记忆函数更新所依赖的值
-const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
-```
+    **
+    ```
+    // 第一个参数用于处理耗时计算并返回需要记录的值；第二个参数为数组，用于指定被记忆函数更新所依赖的值
+    const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+    ```
+    **
 
 ## useMemo 与 useCallback 的区别
 
