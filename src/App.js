@@ -7,6 +7,9 @@ import UseContext from "../views/context/useContext";
 import PageCallBack from "../views/PageCallBack";
 import PageMemo from "../views/PageMemo";
 
+import CountA from "../views/custom/countA";
+import CountB from "../views/custom/countB";
+
 // react中组件名称的首字母必须要用大写。
 // 原因：React中使用JSX语法，但浏览器无法识别JSX语法，需通过babel对JSX语法进行转义；
 // 而如果组件的首字母为小写时，其会被认定为原生DOM标签，创建一个不存在的标签是会报错的。
@@ -22,33 +25,35 @@ export default function App() {
   const menuList = [
     {
       name: "count",
-      title: "·useState· 应用",
       key: "Count"
     },
     {
       name: "count-class",
-      title: "class 应用",
       key: "CountClass"
     },
     {
       name: "useEffect",
-      title: "·",
       key: "PageEffect"
     },
     {
       name: "context",
-      title: "·",
       key: "UseContext"
     },
     {
       name: "callBack",
-      title: "·",
       key: "PageCallBack"
     },
     {
       name: "useMemo",
-      title: "·",
       key: "PageMemo"
+    },
+    {
+      name: "自定义Hook1",
+      key: "CountA"
+    },
+    {
+      name: "自定义Hook2",
+      key: "CountB"
     }
   ];
   return (
@@ -76,6 +81,8 @@ export default function App() {
         {isShowPage === "PageCallBack" ? <PageCallBack /> : ""}
         {isShowPage === "UseContext" ? <UseContext /> : ""}
         {isShowPage === "PageMemo" ? <PageMemo /> : ""}
+        {isShowPage === "CountA" ? <CountA initCount={10} /> : ""}
+        {isShowPage === "CountB" ? <CountB initCount={20} /> : ""}
       </div>
     </div>
   );

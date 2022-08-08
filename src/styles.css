@@ -7,7 +7,7 @@
 .pageMenu {
   border-right: 1px solid #e3e3e3;
   display: block;
-  flex: 1;
+  flex: 1.5;
   margin-right: 16px;
   padding-right: 3px;
 }
