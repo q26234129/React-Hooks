@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import usePubliCount from "./public.js";
 
 function CountBPage(props) {
-  const [countB, setCountB] = usePubliCount(props.initCount);
+  const [countB, setCountB] = useState(usePubliCount(props.initCount));
 
   return (
     <>

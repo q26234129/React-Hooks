@@ -8,6 +8,7 @@ import React, {
 
 function PageOne(props) {
   const [count, setCount] = useState(0);
+  // 数字、字符串、对象、数组、表达式等
 
   // const [count, setCount] = useState(() => {
   //   if (props.initCount < 100) {
@@ -18,9 +19,9 @@ function PageOne(props) {
   // });
   // console.log("更新了");
 
-  // const handleClick = () => {
-  //   setCount(count + 1);
-  // };
+  const handleClick = () => {
+    setCount(count + 1);
+  };
 
   return (
     <>
@@ -31,14 +32,14 @@ function PageOne(props) {
       外部的{ }表示这是Javascript句法，里面的{  }是一个对象
       */}
       <p>count：{count}</p>
-      <button onClick={() => setCount(count + 1)}>Add</button>
-      {/* <button
+      {/* <button onClick={() => setCount(count + 1)}>Add</button> */}
+      <button
         onClick={() => {
           handleClick();
         }}
       >
         Add
-      </button> */}
+      </button>
     </>
   );
 }

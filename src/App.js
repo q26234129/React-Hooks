@@ -44,16 +44,16 @@ export default function App() {
       key: "PageCallBack"
     },
     {
-      name: "useMemo",
-      key: "PageMemo"
-    },
-    {
       name: "自定义Hook1",
       key: "CountA"
     },
     {
       name: "自定义Hook2",
       key: "CountB"
+    },
+    {
+      name: "useMemo",
+      key: "PageMemo"
     }
   ];
   return (

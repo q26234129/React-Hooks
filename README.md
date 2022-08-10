@@ -2,7 +2,7 @@
 
 ### 什么是 Hook
 
-Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。
+Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。_Hook 是一个特殊的函数，它可以让你“钩入” React 的特性。_
 
 ### 为什么是 Hook
 
@@ -14,18 +14,6 @@ Hook 是 React 16.8 的新增特性。它可以让你在不编写 class 的情�
 _最重要的是，Hook 和现有代码可以同时工作，你可以渐进式地使用他们。Hook 是向下兼容的。_
 
 _本质：函数式编程_
-
-### 注意事项(规则)
-
-1. 只在最顶层使用 Hook，不要在循环，条件或嵌套函数中调用 Hook
-
-   ```
-   if (count > 10) {
-     const [count1, setCount1] = useState(0);
-   }
-   ```
-
-2. 只在 React 函数中调用 Hook，不要在普通的 JavaScript 函数中调用 Hook
 
 ### React 中内置的 Hook API
 
@@ -56,7 +44,7 @@ https://react.docschina.org/docs/hooks-reference.html
       }
     })
 
-# 初始 state 的理解
+## 初始 state 的理解
 
 1.  惰性 state
     initialState 参数只会在组件的初始渲染中起作用，后续渲染时会被忽略
@@ -65,10 +53,23 @@ https://react.docschina.org/docs/hooks-reference.html
 
     **如果更新的数据和上次一样，React 将会跳过子组件的渲染几 effect 的执行**
 
+### 注意事项(使用规则)
+
+1. 只在最顶层使用 Hook，不要在循环，条件或嵌套函数中调用 Hook
+
+   ```
+   if (count > 10) {
+     const [count1, setCount1] = useState(0);
+   }
+   ```
+
+2. 只在 React 函数中调用 Hook，不要在普通的 JavaScript 函数中调用 Hook
+
 # useEffect 的使用
 
 . React 在完成对 DOM 的更新后会执行。
 默认情况下， React 会在每次渲染后调用副作用函数，包括第一次渲染的时候。
+_“副作用”一词之来源----你之前可能已经在 React 组件中执行过数据获取、订阅或者手动修改过 DOM。我们统一把这些操作称为“副作用”，或者简称为“作用”。_
 
 . useEffect 有两个参数。
 第一个参数是副作用的处理函数；
@@ -97,6 +98,8 @@ https://react.docschina.org/docs/hooks-reference.html
     })
     ```
     **
+
+    // 每次渲染后都执行清理或者执行 effect 可能会导致性能问题，所以此时可以使用第二个可选参数进行是否执行当前 effect 的优化。
 
 - class 组件中 实现首次加载和卸载的方法
 
@@ -208,6 +211,15 @@ _接收一个 context 对象并返回该 context 的当前值，使用 useContex
     ```
     **
 
+# 自定义 Hook
+
+官方说明：通过自定义 Hook，可以将组件逻辑提取到可重用的函数中。
+
+· 自定义 Hook 是一个函数，其名称以 “use” 开头，函数内部可以调用其他的 Hook。
+· ** 自定义 Hook 必须以 “use” 开头吗？必须如此。**
+
+_自定义以前无法灵活共享逻辑的问题。可以创建涵盖各种场景的自定义 Hook，如表单处理、动画、订阅声明、计时器，甚至可能还有其他我们没想到的场景。_
+
 # useMemo 的使用
 
 ## 基本用法
@@ -223,12 +235,3 @@ _接收一个 context 对象并返回该 context 的当前值，使用 useContex
 
 · useMemo 传入的函数内部需要有返回值、返回的是一个值；useCallback 返回的是一个函数
 · useMemo 只能声明在函数式组件内部
-
-# 自定义 Hook
-
-官方说明：通过自定义 Hook，可以将组件逻辑提取到可重用的函数中。
-
-· 自定义 Hook 是一个函数，其名称以 “use” 开头，函数内部可以调用其他的 Hook。
-· ** 自定义 Hook 必须以 “use” 开头吗？必须如此。**
-
-_自定义以前无法灵活共享逻辑的问题。可以创建涵盖各种场景的自定义 Hook，如表单处理、动画、订阅声明、计时器，甚至可能还有其他我们没想到的场景。_
