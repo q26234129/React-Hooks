@@ -10,6 +10,8 @@ import PageMemo from "../views/PageMemo";
 import CountA from "../views/custom/countA";
 import CountB from "../views/custom/countB";
 
+import CustomTwo from "../views/customTwo/index";
+
 // react中组件名称的首字母必须要用大写。
 // 原因：React中使用JSX语法，但浏览器无法识别JSX语法，需通过babel对JSX语法进行转义；
 // 而如果组件的首字母为小写时，其会被认定为原生DOM标签，创建一个不存在的标签是会报错的。
@@ -52,6 +54,10 @@ export default function App() {
       key: "CountB"
     },
     {
+      name: "自定义TWO-1",
+      key: "CustomTwo"
+    },
+    {
       name: "useMemo",
       key: "PageMemo"
     }
@@ -83,6 +89,7 @@ export default function App() {
         {isShowPage === "PageMemo" ? <PageMemo /> : ""}
         {isShowPage === "CountA" ? <CountA initCount={10} /> : ""}
         {isShowPage === "CountB" ? <CountB initCount={20} /> : ""}
+        {isShowPage === "CustomTwo" ? <CustomTwo /> : ""}
       </div>
     </div>
   );
