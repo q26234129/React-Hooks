@@ -2,6 +2,7 @@ import "./styles.css";
 import React, { useState } from "react";
 import Count from "../views/Count.js";
 import CountClass from "../views/CountClass.js";
+import CountHook from "../views/CountHook.js";
 import PageEffect from "../views/PageEffect.js";
 import UseContext from "../views/context/useContext";
 import PageCallBack from "../views/PageCallBack";
@@ -26,12 +27,16 @@ export default function App() {
 
   const menuList = [
     {
-      name: "count",
-      key: "Count"
-    },
-    {
       name: "count-class",
       key: "CountClass"
+    },
+    {
+      name: "count-hook",
+      key: "CountHook"
+    },
+    {
+      name: "count",
+      key: "Count"
     },
     {
       name: "useEffect",
@@ -83,6 +88,7 @@ export default function App() {
         {/* 页面 */}
         {isShowPage === "Count" ? <Count initCount={0} /> : ""}
         {isShowPage === "CountClass" ? <CountClass /> : ""}
+        {isShowPage === "CountHook" ? <CountHook /> : ""}
         {isShowPage === "PageEffect" ? <PageEffect initCount={20} /> : ""}
         {isShowPage === "PageCallBack" ? <PageCallBack /> : ""}
         {isShowPage === "UseContext" ? <UseContext /> : ""}
