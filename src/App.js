@@ -4,7 +4,8 @@ import Count from "../views/Count.js";
 import CountClass from "../views/CountClass.js";
 import CountHook from "../views/CountHook.js";
 import PageEffect from "../views/PageEffect.js";
-import UseContext from "../views/context/useContext";
+import ContextOne from "../views/contextOne/context";
+import ContextTwo from "../views/contextTwo/context";
 import PageCallBack from "../views/PageCallBack";
 import PageMemo from "../views/PageMemo";
 
@@ -43,8 +44,12 @@ export default function App() {
       key: "PageEffect"
     },
     {
-      name: "context",
-      key: "UseContext"
+      name: "contextOne",
+      key: "ContextOne"
+    },
+    {
+      name: "contextTwo",
+      key: "ContextTwo"
     },
     {
       name: "callBack",
@@ -91,7 +96,8 @@ export default function App() {
         {isShowPage === "CountHook" ? <CountHook /> : ""}
         {isShowPage === "PageEffect" ? <PageEffect initCount={20} /> : ""}
         {isShowPage === "PageCallBack" ? <PageCallBack /> : ""}
-        {isShowPage === "UseContext" ? <UseContext /> : ""}
+        {isShowPage === "ContextOne" ? <ContextOne /> : ""}
+        {isShowPage === "ContextTwo" ? <ContextTwo /> : ""}
         {isShowPage === "PageMemo" ? <PageMemo /> : ""}
         {isShowPage === "CountA" ? <CountA initCount={10} /> : ""}
         {isShowPage === "CountB" ? <CountB initCount={20} /> : ""}

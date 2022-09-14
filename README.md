@@ -126,7 +126,7 @@ useEffect(didSomething,[]);
       // 注册监听逻辑
       console.log('开始监听')
       return () => {
-        // 清除监听逻辑
+        // 清除监听逻辑,组件销毁时被调用
         console.log('结束监听')
       }
     })
@@ -160,7 +160,10 @@ componentDidUpdate()
 
 _接收一个 context 对象并返回该 context 的当前值，使用 useContext 可以实现跨级组件之间的数据通讯_
 
-基本使用(官方案例)
+1.useContext 可以帮助我们跨越组件层级直接传递变量，实现数据共享。
+2.Context 的作用就是对它所包含的组件树提供全局共享数据的一种技术。
+
+###基本使用(官方案例)
 
     **
     ```
@@ -207,7 +210,7 @@ _接收一个 context 对象并返回该 context 的当前值，使用 useContex
 
 # useCallback 的使用
 
-## 基本写法
+### 基本写法
 
     **
     ```
@@ -221,7 +224,7 @@ _接收一个 context 对象并返回该 context 的当前值，使用 useContex
     ```
     **
 
-## 为什么需要使用 useCallback
+### 为什么需要使用 useCallback
 
 在函数式组件中，定义在组件内的函数会随着状态值的更新而重新渲染，函数中定义的函数会被频繁定义，在父子组件的通信中会非常消耗性能。使用 useCallback 结合 memo 可以有效的减少子组件的更新频率，提高效率。
 
@@ -269,7 +272,7 @@ _自定义以前无法灵活共享逻辑的问题。可以创建涵盖各种场�
 
 # useMemo 的使用
 
-## 基本用法
+### 基本用法
 
     **
     ```
@@ -279,7 +282,7 @@ _自定义以前无法灵活共享逻辑的问题。可以创建涵盖各种场�
     ```
     **
 
-## useMemo 与 useCallback 的区别
+### useMemo 与 useCallback 的区别
 
 · useMemo 传入的函数内部需要有返回值、返回的是一个值；useCallback 返回的是一个函数
 · useMemo 只能声明在函数式组件内部

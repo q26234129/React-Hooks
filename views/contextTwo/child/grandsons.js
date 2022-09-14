@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { ThemeContext } from "./themes.js";
+import { ThemeContext } from "./themeContext";
 
-function ThemedDiv() {
+function Grandsons() {
   const themes = useContext(ThemeContext);
   return <div style={themes}>I am styled by theme context!</div>;
 }
 
-export default ThemedDiv;
+export default Grandsons;
