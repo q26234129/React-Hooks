@@ -16,6 +16,7 @@ function UserModule() {
     // });
   }, []);
 
+  // 修改帐号为： newAccounts
   const handleChangeInfo = () => {
     onChangeUserInfo("newAccounts");
   };

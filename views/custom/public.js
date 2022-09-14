@@ -4,17 +4,19 @@ import { useState, useMemo } from "react";
 // 两个不同的组件又分别有自己的处理逻辑
 
 function usePubliCount(data) {
+  // console.log("data", data);
+  // count 未改变
   const [count] = useState(data);
   return useMemo(() => {
-    console.log("触发了···");
+    console.log("调用了···");
     return count;
   }, [count]);
 
-  // // return useMemo(() => {
-  // //此处加入一些公共的处理逻辑
-  // console.log("触发了···");
-  // return data;
-  // // }, [data]);
+  // return useMemo(() => {
+  //   //此处加入一些公共的处理逻辑
+  //   console.log("调用了···");
+  //   return data;
+  // }, [data]);
 
   // // 传统JS函数
   // let a = data;
@@ -22,7 +24,7 @@ function usePubliCount(data) {
   // console.log(0);
   // return a;
 
-  //  // 加memo
+  // // 加memo
   // return useMemo(() => {
   //   let a = data;
   //   return a;

@@ -7,6 +7,7 @@ import PageEffect from "../views/PageEffect.js";
 import ContextOne from "../views/contextOne/context";
 import ContextTwo from "../views/contextTwo/context";
 import PageCallBack from "../views/PageCallBack";
+import CallBackTwo from "../views/callBackTwo";
 import PageMemo from "../views/PageMemo";
 
 import CountA from "../views/custom/countA";
@@ -56,6 +57,10 @@ export default function App() {
       key: "PageCallBack"
     },
     {
+      name: "CallBackTwo",
+      key: "CallBackTwo"
+    },
+    {
       name: "自定义Hook1",
       key: "CountA"
     },
@@ -96,10 +101,11 @@ export default function App() {
         {isShowPage === "CountHook" ? <CountHook /> : ""}
         {isShowPage === "PageEffect" ? <PageEffect initCount={20} /> : ""}
         {isShowPage === "PageCallBack" ? <PageCallBack /> : ""}
+        {isShowPage === "CallBackTwo" ? <CallBackTwo /> : ""}
         {isShowPage === "ContextOne" ? <ContextOne /> : ""}
         {isShowPage === "ContextTwo" ? <ContextTwo /> : ""}
         {isShowPage === "PageMemo" ? <PageMemo /> : ""}
-        {isShowPage === "CountA" ? <CountA initCount={10} /> : ""}
+        {isShowPage === "CountA" ? <CountA /> : ""}
         {isShowPage === "CountB" ? <CountB initCount={20} /> : ""}
         {isShowPage === "CustomTwo" ? <CustomTwo /> : ""}
       </div>

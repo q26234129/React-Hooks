@@ -9,7 +9,7 @@ function Memoized() {
 
   // const handleClick = useCallback(() => {
   //   setCount(count + 1);
-  // }, []);
+  // }, []); // 添加一个空依赖
 
   return (
     <div>
